@@ -18,7 +18,7 @@ export default function HeroSection() {
         className="relative max-w-xl text-white z-10"
       >
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6 text-center md:text-left">
-          <img src={logo} className="h-12 md:h-28" />
+          <img src={logo} className="h-16 md:h-28" />
           Global Kidney 
           <span className="text-4xl font-bold">+</span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
