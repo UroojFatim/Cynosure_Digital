@@ -1,76 +1,112 @@
 import React from "react";
 import { motion } from "framer-motion";
 import logo from "../assets/logo.png";
-
-const cities = [
-  { name: "Jaipur", img: "https://www.cynosuretech.com/images/icons/jaipur.webp" },
-  { name: "Delhi", img: "https://www.cynosuretech.com/images/icons/delhi.webp" },
-  { name: "Mumbai", img: "https://www.cynosuretech.com/images/icons/mumbai.webp" },
-  { name: "Pune", img: "https://www.cynosuretech.com/images/icons/pune.webp" },
-];
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const fadeInVariant = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8 } 
+  },
 };
 
 const Footer = () => {
   return (
     <motion.footer
-      className="text-gray-400 py-10 px-6"
+      className="bg-white text-gray-700 py-12 px-6"
       variants={fadeInVariant}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.2 }}
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-        {/* Company Info */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Brand & About */}
         <div>
-          <div className="flex items-center gap-2">
-            <img src={logo} alt="Cynosure Logo" className="w-10" />
-            <h2 className="text-xl font-semibold text-orange-400">CYNOSURE</h2>
+          <div className="flex items-center space-x-3">
+            <img src={logo} alt="Ace Beauty Lab Logo" className="w-12" />
+            <h2 className="text-2xl font-bold text-blue-300">Ace Beauty Lab</h2>
           </div>
-          <p className="text-sm text-gray-500">Technology &gt; Strategy</p>
-          <p className="mt-2 text-gray-500">69/9, Floor 1 & 2, MLA Tower, New Sangaer Road, Mansarovar, Jaipur - 302020</p>
-          <p className="mt-1 text-gray-500">info@cynosuretech.com</p>
+          <p className="mt-4 text-sm">
+            We blend innovation with beauty to provide premium treatments that enhance your natural glow.
+          </p>
+          <div className="flex space-x-4 mt-4">
+            <a href="#" className="text-blue-400 hover:text-orange-500 transition">
+              <FaFacebookF />
+            </a>
+            <a href="#" className="text-blue-400 hover:text-orange-500 transition">
+              <FaTwitter />
+            </a>
+            <a href="#" className="text-blue-400 hover:text-orange-500 transition">
+              <FaInstagram />
+            </a>
+            <a href="#" className="text-blue-400 hover:text-orange-500 transition">
+              <FaLinkedinIn />
+            </a>
+          </div>
         </div>
 
-        {/* Links */}
+        {/* Quick Links */}
         <div>
-          <h3 className="font-semibold text-lg text-orange-400">Our Products</h3>
-          <ul className="mt-2 space-y-2">
-            <li><a href="#" className="text-gray-500 hover:text-white transition">Timelabs</a></li>
-            <li><a href="#" className="text-gray-500 hover:text-white transition">SureTDS</a></li>
+          <h3 className="text-xl font-semibold text-orange-500 mb-4">Quick Links</h3>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <a href="#" className="text-gray-500 hover:text-blue-400 transition">Home</a>
+            </li>
+            <li>
+              <a href="#" className="text-gray-500 hover:text-blue-400 transition">About Us</a>
+            </li>
+            <li>
+              <a href="#" className="text-gray-500 hover:text-blue-400 transition">Services</a>
+            </li>
+            <li>
+              <a href="#" className="text-gray-500 hover:text-blue-400 transition">Gallery</a>
+            </li>
+            <li>
+              <a href="#" className="text-gray-500 hover:text-blue-400 transition">Contact</a>
+            </li>
           </ul>
         </div>
 
+        {/* Our Services */}
         <div>
-          <h3 className="font-semibold text-lg text-orange-400">Important Links</h3>
-          <ul className="mt-2 space-y-2">
-            <li><a href="#" className="text-gray-500 hover:text-white transition">Careers</a></li>
-            <li><a href="#" className="text-gray-500 hover:text-white transition">Contact</a></li>
+          <h3 className="text-xl font-semibold text-orange-500 mb-4">Our Services</h3>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <a href="#" className="text-gray-500 hover:text-blue-400 transition">Facial Treatments</a>
+            </li>
+            <li>
+              <a href="#" className="text-gray-500 hover:text-blue-400 transition">Body Contouring</a>
+            </li>
+            <li>
+              <a href="#" className="text-gray-500 hover:text-blue-400 transition">Laser Hair Removal</a>
+            </li>
+            <li>
+              <a href="#" className="text-gray-500 hover:text-blue-400 transition">Skin Revitalization</a>
+            </li>
           </ul>
         </div>
 
-        {/* Cities */}
-        <div className="mt-4 md:mt-0 flex justify-center gap-6 flex-wrap">
-          {cities.map((city, index) => (
-            <motion.div
-              key={index}
-              className="text-center"
-              whileHover={{ scale: 1.1 }}
-            >
-              <img src={city.img} alt={city.name} className="w-12 mx-auto" />
-              <p className="text-gray-500 mt-1">{city.name}</p>
-            </motion.div>
-          ))}
+        {/* Contact Info */}
+        <div>
+          <h3 className="text-xl font-semibold text-orange-500 mb-4">Contact Us</h3>
+          <p className="text-sm">
+            69/9, Floor 1 &amp; 2, MLA Tower,<br />
+            New Sangaer Road, Mansarovar,<br />
+            Jaipur - 302020
+          </p>
+          <p className="text-sm mt-2">Email: info@acebeautylab.com</p>
+          <p className="text-sm mt-1">Phone: +91 12345 67890</p>
         </div>
       </div>
 
       {/* Copyright */}
-      <p className="text-center text-sm mt-8 text-gray-500">
-        Copyright © {new Date().getFullYear()} Cynosure Technologies - All rights reserved
-      </p>
+      <div className="mt-12 border-t border-gray-300 pt-6 text-center">
+        <p className="text-xs">
+          &copy; {new Date().getFullYear()} Ace Beauty Lab. All rights reserved.
+        </p>
+      </div>
     </motion.footer>
   );
 };
