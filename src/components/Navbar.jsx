@@ -2,98 +2,88 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import bgImage from "../assets/hero_bg.jpg";
+import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
 
   return (
-    <nav className="absolute top-0 left-0 w-full p-6 flex justify-between items-center text-white z-50">
+    <nav className="absolute top-0 left-0 w-full px-8 py-6 flex justify-between items-center text-white z-50 bg-gradient-to-b from-black to-transparent">
       {/* Logo */}
-      <h1 className="text-3xl font-bold">
-        CYNOSURE <span className="text-gray-400">Designs</span>
-      </h1>
+      <img src={logo} alt="Ace Beauty Lab" className="h-18" />
 
       {/* Menu Button */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="p-2 bg-white text-black rounded-full z-50"
+        className="p-3 bg-white text-black rounded-full shadow-lg transition-transform duration-300 hover:scale-110"
       >
-        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
-      {/* Full-Screen Overlay with Enhanced Animation */}
+      {/* Full-Screen Overlay */}
       <div
-        className={`fixed inset-0 flex flex-col items-center justify-center text-xl space-y-6 bg-black bg-opacity-70 transition-all duration-700 ease-in-out transform ${
+        className={`fixed inset-0 flex flex-col items-center justify-center text-xl bg-black bg-opacity-90 backdrop-blur-md transition-all duration-700 ease-in-out transform ${
           isMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
         }`}
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url(${bgImage})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* Top Section: Logo and Close Button */}
-        <div className="absolute top-6 left-6 flex items-center space-x-4">
-          <h1 className="text-3xl font-bold">
-            CYNOSURE <span className="text-gray-400">Designs</span>
-          </h1>
-        </div>
+        {/* Logo inside menu */}
+        <img src={logo} alt="Ace Beauty Lab" className="absolute top-6 left-6 h-12" />
 
-        {/* Close Button in Top Right */}
+        {/* Close Button */}
         <button
           onClick={() => setIsMenuOpen(false)}
-          className="absolute top-6 right-6 p-2 text-white rounded-full transition"
+          className="absolute top-6 right-6 p-3 bg-gray-800 text-white rounded-full shadow-lg transition-transform hover:scale-110"
         >
-          <X size={32} />
+          <X size={36} />
         </button>
 
-        {/* Navigation Links with Smooth Fade In */}
-        <div className="flex flex-col items-center space-y-6 text-white text-2xl font-semibold">
-          <Link to="/" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
-            Home
-          </Link>
-          <Link to="/services" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
-            Services
-          </Link>
-          <Link to="/our-work" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
-            Our Work
-          </Link>
-          <Link to="/blog" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
-            Blog
-          </Link>
-          <Link to="/contact" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
-            Let's Talk
-          </Link>
-        </div>
-
-        {/* About Us with Dropdown */}
-        <div className="relative mt-4">
-          <button
-            className="hover:text-gray-400 focus:outline-none transition duration-300"
-            onMouseEnter={() => setIsAboutOpen(true)}
-            onMouseLeave={() => setIsAboutOpen(false)}
-          >
-            About Us
-          </button>
-          {isAboutOpen && (
-            <div
-              className="absolute left-0 w-48 bg-opacity-95 shadow-lg rounded-lg text-lg text-white flex flex-col transition-all duration-500 transform scale-95 opacity-0"
-              onMouseEnter={() => setIsAboutOpen(true)}
-              onMouseLeave={() => setIsAboutOpen(false)}
-              style={{ opacity: isAboutOpen ? 1 : 0, transform: isAboutOpen ? "scale-100" : "scale-95" }}
-            >
-              <Link to="/careers" className="p-1 hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>
-                Careers
-              </Link>
-              <Link to="/industries" className="p-1 hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>
-                Industries
-              </Link>
-              <Link to="/case-studies" className="p-1 hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>
-                Case Studies
-              </Link>
+        {/* Navigation Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-white text-lg font-semibold p-20  ">
+          {/** Navigation Sections **/}
+          {[
+            { title: "For Providers", links: [
+              { name: "Body Contouring", path: "/body-contouring" },
+              { name: "Skin Revitalization", path: "/skin-revitalization" },
+              { name: "Tattoo Removal", path: "/tattoo-removal" },
+              { name: "Surgical", path: "/surgical" },
+              { name: "View All Products", path: "/all-products", special: true }
+            ]},
+            { title: "For Patients", links: [
+              { name: "Laser Hair Removal", path: "/laser-hair-removal" },
+              { name: "Body Contouring (Non-Invasive)", path: "/non-invasive-contouring" },
+              { name: "Tattoo Removal", path: "/tattoo-removal" },
+              { name: "View All Treatments", path: "/all-treatments", special: true }
+            ]},
+            { title: "About Us", links: [
+              { name: "Who we are", path: "/leadership" },
+              { name: "Leadership", path: "/leadership" },
+              { name: "Career", path: "/career" }
+            ]},
+            { title: "Contact Us", links: [
+              { name: "Get in Touch", path: "/contact" }
+            ]}
+          ].map((section, index) => (
+            <div key={index}>
+              <h3 className="text-2xl text-orange-400 mb-4 border-b-2 border-blue-300 pb-2">{section.title}</h3>
+              <ul className="space-y-3 text-gray-300">
+                {section.links.map((link, idx) => (
+                  <li key={idx}>
+                    <Link 
+                      to={link.path} 
+                      className={`hover:text-white transition ${link.special ? "text-blue-300 border-2 border-blue-300 px-4 py-2 rounded-lg font-bold hover:underline" : ""}`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          )}
+          ))}
         </div>
       </div>
     </nav>
