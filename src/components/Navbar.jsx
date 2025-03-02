@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import bgImage from "../assets/hero_bg.jpg";
 
@@ -49,16 +50,21 @@ export default function Navbar() {
 
         {/* Navigation Links with Smooth Fade In */}
         <div className="flex flex-col items-center space-y-6 text-white text-2xl font-semibold">
-          {["Home", "Services", "Our Work", "Blog", "Let's Talk"].map((item, index) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s+/g, "")}`}
-              className={`opacity-0 transform translate-y-4 transition-all duration-500 ease-out delay-${index * 100} hover:text-gray-400`}
-              style={{ opacity: isMenuOpen ? 1 : 0, transform: isMenuOpen ? "translateY(0)" : "translateY(10px)" }}
-            >
-              {item}
-            </a>
-          ))}
+          <Link to="/" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
+            Home
+          </Link>
+          <Link to="/services" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
+            Services
+          </Link>
+          <Link to="/our-work" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
+            Our Work
+          </Link>
+          <Link to="/blog" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
+            Blog
+          </Link>
+          <Link to="/contact" className="hover:text-gray-400" onClick={() => setIsMenuOpen(false)}>
+            Let's Talk
+          </Link>
         </div>
 
         {/* About Us with Dropdown */}
@@ -72,14 +78,20 @@ export default function Navbar() {
           </button>
           {isAboutOpen && (
             <div
-              className="absolute left-0 mt-2 w-48 bg-gray-900 bg-opacity-95 shadow-lg rounded-lg text-lg text-white flex flex-col transition-all duration-500 transform scale-95 opacity-0"
+              className="absolute left-0 w-48 bg-opacity-95 shadow-lg rounded-lg text-lg text-white flex flex-col transition-all duration-500 transform scale-95 opacity-0"
               onMouseEnter={() => setIsAboutOpen(true)}
               onMouseLeave={() => setIsAboutOpen(false)}
               style={{ opacity: isAboutOpen ? 1 : 0, transform: isAboutOpen ? "scale-100" : "scale-95" }}
             >
-              <a href="#careers" className="p-3 hover:bg-gray-700">Careers</a>
-              <a href="#industries" className="p-3 hover:bg-gray-700">Industries</a>
-              <a href="#case-studies" className="p-3 hover:bg-gray-700">Case Studies</a>
+              <Link to="/careers" className="p-1 hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>
+                Careers
+              </Link>
+              <Link to="/industries" className="p-1 hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>
+                Industries
+              </Link>
+              <Link to="/case-studies" className="p-1 hover:bg-gray-700" onClick={() => setIsMenuOpen(false)}>
+                Case Studies
+              </Link>
             </div>
           )}
         </div>

@@ -35,23 +35,23 @@ const ServicesSection = () => {
         viewport={{ once: false, amount: 0.3 }} // triggers animation on scroll
       >
         <h2 className="text-4xl font-bold text-white">
-          What we <span className="text-orange-500">Offer!</span>
+          Our <span className="text-orange-500">Skincare Solutions</span>
         </h2>
         <p className="text-gray-100">
-          Streamlined HR processes to cutting-edge software solutions, we provide a diverse range of tools for business optimization.
+          Experience **science-backed skincare** designed to nourish, hydrate, and revitalize your skin for a healthy, radiant glow.
         </p>
         <h3 className="text-xl font-semibold text-orange-500">
-          Providing solutions to your business problems
+          Personalized Care for Every Skin Type
         </h3>
         <p className="text-gray-100">
-          We specialize in crafting customized solutions that precisely address your business challenges, ensuring sustainable success.
+          From **deep hydration to anti-aging treatments**, our products are formulated to enhance your skin’s natural beauty and promote long-lasting health.
         </p>
         <motion.button 
           className="bg-orange-500 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-orange-600 transition"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          Let's Talk ➚
+          Explore Our Products ✨
         </motion.button>
       </motion.div>
 

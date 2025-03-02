@@ -4,15 +4,17 @@ import HeroSection from '../components/HeroSection'
 import Footer from '../components/Footer'
 import ServicesSection from '../components/ServiceSection'
 import ReverseHeroSection from '../components/ReverseHeroSection'
+import Partners from '../components/Partners'
+import Innovation from '../components/Innovation'
 
 const HomePage = () => {
   return (
     <>
-      <Navbar/>
       <HeroSection/>
       <ReverseHeroSection/>
       <ServicesSection/>
-      <Footer/>
+      <Partners/>
+      <Innovation/>
     </>
   )
 }
