@@ -59,7 +59,7 @@ const ProviderProduct = () => {
     <section className="relative bg-gradient-to-r from-[#f8f9fa] to-[#e9ecef] px-6 md:px-12 py-16">
       {/* Page Heading with Animation */}
       <motion.h2
-        className="text-4xl md:text-5xl font-bold text-center mb-10 text-gray-800"
+        className="text-4xl md:text-5xl font-bold text-center mb-10 text-orange-500"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
