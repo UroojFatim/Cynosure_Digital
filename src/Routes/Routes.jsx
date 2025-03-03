@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Providers from "../pages/Providers";
 import CategoryDetail from "../pages/CategoryDetail"; // Import Category Detail Page
+import Patients from "../pages/Patients";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/for-providers" element={<Providers />} />
         <Route path="/for-providers/:categoryName" element={<CategoryDetail />} /> {/* Corrected Route */}
+        <Route path="/for-patients" element={<Patients/>} />
       </Routes>
 
       <Footer />
