@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <nav className="absolute top-0 left-0 w-full px-4 sm:px-8 py-4 sm:py-6 flex justify-between items-center text-white z-50 bg-gradient-to-b from-black to-transparent">
       {/* Logo */}
-      <img src={logo} alt="Ace Beauty Lab" className="h-10 sm:h-18" />
+      <Link to = "/"><img src={logo} alt="Ace Beauty Lab" className="h-10 sm:h-18" /></Link>
 
       {/* Menu Button */}
       <button
@@ -33,7 +33,7 @@ export default function Navbar() {
         }}
       >
         {/* Logo inside menu */}
-        <img src={logo} alt="Ace Beauty Lab" className="absolute top-4 left-4 sm:top-6 sm:left-6 h-8 sm:h-12" />
+        <Link to = "/"><img src={logo} alt="Ace Beauty Lab" className="absolute top-4 left-4 sm:top-6 sm:left-6 h-8 sm:h-12" /></Link>
 
         {/* Close Button */}
         <button
@@ -51,6 +51,7 @@ export default function Navbar() {
             {[
               {
                 title: "For Providers",
+                path: "/for-providers",
                 links: [
                   { name: "Body Contouring", path: "/body-contouring" },
                   { name: "Skin Revitalization", path: "/skin-revitalization" },
@@ -61,6 +62,7 @@ export default function Navbar() {
               },
               {
                 title: "For Patients",
+                path: "/patients",
                 links: [
                   { name: "Laser Hair Removal", path: "/laser-hair-removal" },
                   { name: "Body Contouring (Non-Invasive)", path: "/non-invasive-contouring" },
@@ -70,6 +72,7 @@ export default function Navbar() {
               },
               {
                 title: "About Us",
+                path: "/about",
                 links: [
                   { name: "Who we are", path: "/leadership" },
                   { name: "Leadership", path: "/leadership" },
@@ -78,13 +81,16 @@ export default function Navbar() {
               },
               {
                 title: "Contact Us",
+                path: "/contact",
                 links: [{ name: "Get in Touch", path: "/contact" }],
               },
             ].map((section, index) => (
               <div key={index}>
-                <h3 className="text-2xl text-orange-400 mb-2 sm:mb-4 border-b-2 border-blue-300 pb-1 sm:pb-2">
+                <Link to = {section.path} >
+                <h3 className="text-2xl text-orange-400 mb-2 sm:mb-10 border-b-2 border-blue-300 pb-1 sm:pb-2 ">
                   {section.title}
-                </h3>
+                  </h3>
+                </Link>
                 <ul className="space-y-2 sm:space-y-3 text-gray-300">
                   {section.links.map((link, idx) => (
                     <li key={idx}>

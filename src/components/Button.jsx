@@ -4,7 +4,7 @@ export default function Button({ text, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="relative px-6 py-3 text-lg font-bold text-white bg-sky-900 rounded-full shadow-lg 
+      className="relative px-6 py-3 text-lg font-bold text-white bg-sky-950 rounded-full shadow-lg 
       transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden"
     >
       {/* 🔹 Background Hover Effect (Text Will Not Hide) */}

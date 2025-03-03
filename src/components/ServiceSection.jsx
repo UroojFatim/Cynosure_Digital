@@ -26,7 +26,7 @@ const gridVariants = {
 
 const ServicesSection = () => {
   return (
-    <section className="bg-sky-900 py-16 px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-14">
+    <section className="bg-sky-950 py-16 px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-14">
       <motion.div 
         className="md:w-1/2 space-y-6"
         variants={textVariants}
